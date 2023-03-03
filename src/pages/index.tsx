@@ -135,7 +135,7 @@ const Home: NextPage = () => {
         </div>
         <div className='flex flex-grow flex-col items-center justify-center space-y-4'>
           <Title>home</Title>
-          <Button href='https://github.com/b4conjuice/baconponents'>
+          <Button href='https://github.com/bacondotbuild/b4-app'>
             external link
           </Button>
           <Button onClick={() => console.log('click')}>button</Button>
