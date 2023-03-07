@@ -10,7 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@bacondotbuild/ui": "^0.1.2",
+    "@bacondotbuild/ui": "^0.2.0",
     "@heroicons/react": "^2.0.14",
     "@next-auth/prisma-adapter": "^1.0.5",
     "@prisma/client": "^4.9.0",
