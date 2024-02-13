@@ -33,12 +33,12 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ## update existing files
 
-### `prettier.config.cjs`
+### `prettier.config.js`
 
 ```js
-/** @type {import("prettier").Config} */
-module.exports = {
-  plugins: [require.resolve('prettier-plugin-tailwindcss')],
+/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
+const config = {
+  plugins: ['prettier-plugin-tailwindcss'],
   singleQuote: true,
   jsxSingleQuote: true,
   printWidth: 80,
@@ -47,15 +47,18 @@ module.exports = {
   endOfLine: 'auto',
   semi: false,
 }
+
+export default config
 ```
 
-### `tailwind.config.cjs`
+### `tailwind.config.ts`
 
 ```js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import { type Config } from 'tailwindcss'
+
+export default {
   content: [
-    './src/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.tsx',
     './node_modules/@bacondotbuild/ui/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
@@ -78,8 +81,8 @@ module.exports = {
       },
     },
   },
-  ...
-};
+  plugins: [],
+} satisfies Config
 ```
 
 ## add files
