@@ -59,7 +59,7 @@ import { type Config } from 'tailwindcss'
 export default {
   content: [
     './src/**/*.tsx',
-    './node_modules/@bacondotbuild/ui/**/*.{js,ts,jsx,tsx}',
+    // './node_modules/@bacondotbuild/ui/**/*.{js,ts,jsx,tsx}', // only for pages router
   ],
   theme: {
     extend: {
@@ -85,9 +85,10 @@ export default {
 } satisfies Config
 ```
 
+- TODO: tailwind v4, no `config.js`
+
 ## add files
 
-- `npm i @bacondotbuild/ui@latest`
 - `/components`
   - `layout.tsx`, `meta.tsx`,
   - `cp -r ~/dev/b4-app/src/components src`
@@ -95,16 +96,34 @@ export default {
   - `favicon.png`, `icon.png`, `manifest.json`, `splash.png`
   - `cp -r ~/dev/b4-app/public/. public`
   - `trash public/favicon.ico`
+- app router: `app/layout`
+  - cp -r ~/dev/bacon.build/b4-app/src/app/layout.tsx src/app/layout.tsx
 - `/.vscode/settings.json`
   - `mkdir .vscode`
   - `cp ~/dev/b4-app/.vscode/settings.json .vscode/settings.json`
+- pages router: `bun i @bacondotbuild/ui@latest`
+- app router: `bun i classnames`
+
+```bash
+# b4 / b4-app-router
+function b4-app-router() {
+  cp -r ~/dev/bacon.build/b4-app/src/app/_components/. src/app/_components
+  cp -r ~/dev/bacon.build/b4-app/public/. public
+  cp -r ~/dev/bacon.build/b4-app/src/app/layout.tsx src/app/layout.tsx
+  trash public/favicon.ico
+  vs-settings
+  bun i classnames
+}
+```
 
 ## project specific changes
 
 - `manifest.json` - update `name` and `short_name`
-- `src/components/layout.tsx` - update `DEFAULT_TITLE`
+- pages router: `src/components/layout.tsx` - update `DEFAULT_TITLE`
+- app router: `src/app/layout.tsx` - update `DEFAULT_TITLE`
 - `package.json` - update `dev` script to include `-p $PORT`
-- `src/pages/index.tsx` - update home page
+- pages router: `src/pages/index.tsx` - update home page
+- app router: `src/app/page.tsx` - update home page
 
 ## optional: install additional dependences
 
