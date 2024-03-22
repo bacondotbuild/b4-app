@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='flex min-h-screen flex-col bg-cb-dark-blue text-cb-white'>
+        <div className='bg-cb-dark-blue text-cb-white flex min-h-screen flex-col'>
           <TRPCReactProvider>{children}</TRPCReactProvider>
         </div>
       </body>
