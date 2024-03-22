@@ -16,33 +16,33 @@ function Messages() {
 
   const utils = api.useContext()
 
-  const { data: messages } = api.guestbook.getAll.useQuery()
-  const postMessage = api.guestbook.postMessage.useMutation({
-    // https://create.t3.gg/en/usage/trpc#optimistic-updates
-    async onMutate(newPost) {
-      // Cancel outgoing fetches (so they don't overwrite our optimistic update)
-      await utils.guestbook.getAll.cancel()
+  // const { data: messages } = api.guestbook.getAll.useQuery()
+  // const postMessage = api.guestbook.postMessage.useMutation({
+  //   // https://create.t3.gg/en/usage/trpc#optimistic-updates
+  //   async onMutate(newPost) {
+  //     // Cancel outgoing fetches (so they don't overwrite our optimistic update)
+  //     await utils.guestbook.getAll.cancel()
 
-      // Get the data from the queryCache
-      const prevData = utils.guestbook.getAll.getData()
+  //     // Get the data from the queryCache
+  //     const prevData = utils.guestbook.getAll.getData()
 
-      // Optimistically update the data with our new post
-      utils.guestbook.getAll.setData(undefined, old => {
-        return [newPost, ...(old || [])]
-      })
+  //     // Optimistically update the data with our new post
+  //     utils.guestbook.getAll.setData(undefined, old => {
+  //       return [newPost, ...(old || [])]
+  //     })
 
-      // Return the previous data so we can revert if something goes wrong
-      return { prevData }
-    },
-    onError(err, newPost, ctx) {
-      // If the mutation fails, use the context-value from onMutate
-      utils.guestbook.getAll.setData(undefined, ctx?.prevData)
-    },
-    async onSettled() {
-      // Sync with server once mutation has settled
-      await utils.guestbook.getAll.invalidate()
-    },
-  })
+  //     // Return the previous data so we can revert if something goes wrong
+  //     return { prevData }
+  //   },
+  //   onError(err, newPost, ctx) {
+  //     // If the mutation fails, use the context-value from onMutate
+  //     utils.guestbook.getAll.setData(undefined, ctx?.prevData)
+  //   },
+  //   async onSettled() {
+  //     // Sync with server once mutation has settled
+  //     await utils.guestbook.getAll.invalidate()
+  //   },
+  // })
   return (
     <div>
       {session ? (
@@ -60,10 +60,10 @@ function Messages() {
             className='space-y-4'
             onSubmit={e => {
               e.preventDefault()
-              postMessage.mutate({
-                name: session.user?.name ?? '',
-                message,
-              })
+              // postMessage.mutate({
+              //   name: session.user?.name ?? '',
+              //   message,
+              // })
 
               setMessage('')
             }}
@@ -90,7 +90,7 @@ function Messages() {
       )}
       <div className='bg-cobalt'>
         <h2>messages</h2>
-        <ul className='space-y-4'>
+        {/* <ul className='space-y-4'>
           {messages?.map((msg, index) => {
             return (
               <li key={index}>
@@ -99,7 +99,7 @@ function Messages() {
               </li>
             )
           })}
-        </ul>
+        </ul> */}
       </div>
     </div>
   )
