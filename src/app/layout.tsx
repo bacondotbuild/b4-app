@@ -3,7 +3,7 @@ import { TRPCReactProvider } from '@/trpc/react'
 
 import '@/styles/globals.css'
 
-const DEFAULT_TITLE = 'b4-app'
+const DEFAULT_TITLE = 'b4'
 
 export const metadata = {
   manifest: '/manifest.json',
