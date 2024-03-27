@@ -1,9 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@bacondotbuild/ui/**/*.{js,ts,jsx,tsx}',
-  ],
+import { type Config } from 'tailwindcss'
+
+export default {
+  content: ['./src/**/*.tsx'],
   theme: {
     extend: {
       colors: {
@@ -25,4 +23,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+} satisfies Config
