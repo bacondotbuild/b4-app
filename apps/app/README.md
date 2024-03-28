@@ -130,3 +130,9 @@ function b4-app-router() {
 - ui: `npm i @headlessui/react @heroicons/react`
 - icons: `npm i @heroicons/react`
 - forms: `npm i @tailwindcss/forms`
+
+## TODO
+
+- monorepo
+  - lib
+- add ui components
