@@ -31,6 +31,9 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      lib:
+        specifier: workspace:*
+        version: link:../../packages/lib
       next:
         specifier: ^14.1.3
         version: 14.1.4(react-dom@18.2.0)(react@18.2.0)
@@ -74,9 +77,6 @@ importers:
       eslint-config-next:
         specifier: ^14.1.3
         version: 14.1.4(eslint@8.57.0)(typescript@5.4.3)
-      lib:
-        specifier: workspace:*
-        version: link:../../packages/lib
       postcss:
         specifier: ^8.4.34
         version: 8.4.38
