@@ -1,0 +1,13 @@
+{
+  "name": "lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fuse.js": "^7.0.0",
+    "react": "^18.2.0"
+  }
+}

@@ -57,10 +57,7 @@ export default config
 import { type Config } from 'tailwindcss'
 
 export default {
-  content: [
-    './src/**/*.tsx',
-    // './node_modules/@bacondotbuild/ui/**/*.{js,ts,jsx,tsx}', // only for pages router
-  ],
+  content: ['./src/**/*.tsx'],
   theme: {
     extend: {
       colors: {
@@ -105,11 +102,10 @@ export default {
 - app router: `bun i classnames`
 
 ```bash
-# b4 / b4-app-router
-function b4-app-router() {
-  cp -r ~/dev/bacon.build/b4-app/src/app/_components/. src/app/_components
-  cp -r ~/dev/bacon.build/b4-app/public/. public
-  cp -r ~/dev/bacon.build/b4-app/src/app/layout.tsx src/app/layout.tsx
+function b4() {
+  cp -r ~/dev/bacon.build/b4-app/apps/app/src/app/_components/. src/app/_components
+  cp -r ~/dev/bacon.build/b4-app/apps/app/public/. public
+  cp -r ~/dev/bacon.build/b4-app/apps/app/src/app/layout.tsx src/app/layout.tsx
   trash public/favicon.ico
   vs-settings
   bun i classnames
@@ -119,17 +115,18 @@ function b4-app-router() {
 ## project specific changes
 
 - `manifest.json` - update `name` and `short_name`
-- pages router: `src/components/layout.tsx` - update `DEFAULT_TITLE`
-- app router: `src/app/layout.tsx` - update `DEFAULT_TITLE`
+- `src/app/layout.tsx` - update `DEFAULT_TITLE`
+  - pages router: `src/components/layout.tsx`
 - `package.json` - update `dev` script to include `-p $PORT`
-- pages router: `src/pages/index.tsx` - update home page
-- app router: `src/app/page.tsx` - update home page
+- `src/app/page.tsx` - update home page
+  - pages router: `src/pages/index.tsx`
 
 ## optional: install additional dependences
 
-- ui: `npm i @headlessui/react @heroicons/react`
-- icons: `npm i @heroicons/react`
-- forms: `npm i @tailwindcss/forms`
+- ui: `bun i @headlessui/react @heroicons/react`
+- icons: `bun i @heroicons/react`
+- forms: `bun i @tailwindcss/forms`
+- typography: `bun i @tailwindcss/typography`
 
 ## TODO
 
