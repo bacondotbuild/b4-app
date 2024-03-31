@@ -1,8 +1,0 @@
-{
-  "name": "www",
-  "short_name": "www",
-  "lang": "en-US",
-  "start_url": "/",
-  "display": "standalone",
-  "scope": "/"
-}
