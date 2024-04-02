@@ -113,6 +113,9 @@ importers:
       '@trpc/server':
         specifier: next
         version: 11.0.0-rc.329
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
       next:
         specifier: ^14.1.3
         version: 14.1.4(react-dom@18.2.0)(react@18.2.0)
