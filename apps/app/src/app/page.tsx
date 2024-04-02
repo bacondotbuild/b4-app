@@ -1,6 +1,6 @@
 import Main from '@/app/_components/main'
 import { Title } from '@/components/ui'
-import CopyButton from './_components/copy-button'
+import CopyButton from '@/components/copy-button'
 
 export default function Home() {
   return (
