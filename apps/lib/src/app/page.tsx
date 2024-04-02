@@ -1,4 +1,4 @@
-import Main from '@/app/_components/main'
+import Main from '@/components/ui/main'
 import CopyButton from '@/components/copy-button'
 
 export default function Home() {
