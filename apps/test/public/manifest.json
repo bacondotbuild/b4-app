@@ -1,6 +1,6 @@
 {
-  "name": "test",
-  "short_name": "test",
+  "name": "lib",
+  "short_name": "lib",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",

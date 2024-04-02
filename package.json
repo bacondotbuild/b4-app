@@ -6,7 +6,7 @@
   "scripts": {
     "app": "pnpm --filter app",
     "www": "pnpm --filter www",
-    "test": "pnpm --filter test"
+    "lib": "pnpm --filter lib-www"
   },
   "keywords": [],
   "author": "",

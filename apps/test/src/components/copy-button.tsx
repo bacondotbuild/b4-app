@@ -8,7 +8,7 @@ export default function CopyButton() {
   return (
     <Button
       onClick={() => {
-        copyToClipboard('test')
+        copyToClipboard('lib')
       }}
     >
       copy
