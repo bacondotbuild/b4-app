@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "app": "pnpm --filter app",
-    "www": "pnpm --filter www"
+    "www": "pnpm --filter www",
+    "test": "pnpm --filter test"
   },
   "keywords": [],
   "author": "",
