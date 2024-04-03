@@ -2,9 +2,10 @@
 
 import Link from 'next/link'
 
+import { Title } from 'ui'
 import { copyToClipboard } from 'lib'
 
-import { Title, Button } from '@/components/ui'
+import { Button } from '@/components/ui'
 import utils from '@/lib/lib'
 
 function CopyToClipboard() {

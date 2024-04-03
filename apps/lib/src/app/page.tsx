@@ -1,6 +1,8 @@
 import Link from 'next/link'
 
-import { Main, Title } from '@/components/ui'
+import { Title } from 'ui'
+
+import { Main } from '@/components/ui'
 import utils from '@/lib/lib'
 
 export default function Home() {
