@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-import { copyToClipboard, fetcher } from 'lib'
+import { copyToClipboard, fetcher, useLocalStorage } from 'lib'
 
 import { Button } from '@/components/ui'
 import utils from '@/lib/lib'
@@ -85,7 +85,17 @@ function UseForm() {
 }
 
 function UseLocalStorage() {
-  return <div>useLocalStorage</div>
+  const [text, setText] = useLocalStorage('lib-useLocalStorage-text', '')
+  return (
+    <textarea
+      placeholder='this text is saved to localStorage'
+      className='h-full w-full flex-grow bg-cobalt'
+      value={text}
+      onChange={e => {
+        setText(e.target.value)
+      }}
+    />
+  )
 }
 
 function UseSearch() {
