@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-import { copyToClipboard, fetcher, useLocalStorage } from 'lib'
+import { copyToClipboard, fetcher, useForm, useLocalStorage } from 'lib'
 
 import { Button } from '@/components/ui'
 import utils from '@/lib/lib'
@@ -81,7 +81,110 @@ function Fetcher() {
 }
 
 function UseForm() {
-  return <div>useForm</div>
+  const [leagueName, setLeagueName] = useState('')
+  const [itemsAsArray, setItemsAsArray] = useState([] as string[])
+  const [teamsAsArray, setTeamsAsArray] = useState([] as string[])
+  const initialDraft = {
+    title: 'untitled',
+    items: '',
+    teams: '',
+  }
+  const { values, handleChange, handleSubmit, isSubmitting, dirty } = useForm({
+    initialValues: {
+      title: initialDraft.title,
+      items: initialDraft.items,
+      teams: initialDraft.teams,
+    },
+    onSubmit: (
+      { title, items: newItems, teams: newTeams },
+      { setSubmitting }
+    ) => {
+      setLeagueName(title as string)
+      setItemsAsArray((newItems as string).split('\n'))
+      setTeamsAsArray((newTeams as string).split('\n'))
+      setSubmitting(false)
+    },
+  })
+
+  const { title, items, teams } = values
+
+  const teamsCount = teamsAsArray.length
+  const league = itemsAsArray.reduce<string[][]>((finalItems, item, index) => {
+    const round = Math.ceil((index + 1) / teamsCount)
+    const teamIndex =
+      round % 2 === 1
+        ? index % teamsCount
+        : teamsCount - 1 - (index % teamsCount)
+    if (finalItems[teamIndex]) {
+      finalItems[teamIndex]?.push(
+        `${index + 1} ${item} (${round}-${(index % teamsCount) + 1})`
+      )
+    } else {
+      finalItems[teamIndex] = [
+        `${index + 1} ${item} (${round}-${(index % teamsCount) + 1})`,
+      ]
+    }
+    return finalItems
+  }, [])
+  return (
+    <div>
+      <form className='space-y-2'>
+        <h2>title</h2>
+        <input
+          className='w-full bg-cobalt'
+          type='text'
+          name='title'
+          value={title as string}
+          onChange={handleChange}
+        />
+        <h2>items</h2>
+        <textarea
+          className='w-full bg-cobalt'
+          name='items'
+          value={items as string}
+          onChange={handleChange}
+        />
+        <h2>teams</h2>
+        <textarea
+          className='w-full bg-cobalt'
+          name='teams'
+          value={teams as string}
+          onChange={handleChange}
+        />
+        <Button
+          className='disabled:pointer-events-none disabled:opacity-25'
+          type='submit'
+          onClick={handleSubmit}
+          disabled={!dirty || isSubmitting}
+        >
+          save
+        </Button>
+      </form>
+      <h2>league{leagueName ? `: ${leagueName}` : ''}</h2>
+      {leagueName && itemsAsArray.length > 0 && teamsAsArray.length > 0 && (
+        <>
+          <h2>drafted</h2>
+          <ol className='list-decimal pl-8'>
+            {itemsAsArray.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ol>
+          <ul className='grid grid-cols-2 gap-4 md:grid-cols-3'>
+            {league.map((team, index) => (
+              <li key={index}>
+                <h2>{teamsAsArray[index]}</h2>
+                <ul>
+                  {team.map((item, itemIndex) => (
+                    <li key={itemIndex}>{item}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </div>
+  )
 }
 
 function UseLocalStorage() {
