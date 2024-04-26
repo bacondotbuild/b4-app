@@ -1,5 +1,4 @@
 import type { Viewport } from 'next'
-import { TRPCReactProvider } from '@/trpc/react'
 
 import '@/styles/globals.css'
 
@@ -28,8 +27,8 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='bg-cb-dark-blue text-cb-white flex min-h-screen flex-col'>
-          <TRPCReactProvider>{children}</TRPCReactProvider>
+        <div className='flex min-h-screen flex-col bg-cb-dark-blue text-cb-white'>
+          {children}
         </div>
       </body>
     </html>
