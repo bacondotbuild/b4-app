@@ -13,7 +13,7 @@ import {
 
 import { Button } from 'ui'
 
-import utils from '@/lib/lib'
+import { utils } from '@/lib/common'
 
 function CopyToClipboard() {
   return (

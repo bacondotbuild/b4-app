@@ -6,4 +6,6 @@ const utils = [
   'useSearch',
 ]
 
-export default utils
+const ui = ['title', 'button']
+
+export { utils, ui }
