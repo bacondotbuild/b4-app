@@ -29,7 +29,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ## create b4-app
 
-`npm create t3-app@latest`
+`pnpm create t3-app@latest`
 
 ## update existing files
 
