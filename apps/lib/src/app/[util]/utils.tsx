@@ -11,16 +11,17 @@ import {
   useSearch,
 } from 'lib'
 
-import { Button } from '@/components/ui'
+import { Button } from 'ui'
+
 import utils from '@/lib/lib'
 
 function CopyToClipboard() {
   return (
     <Button
-      type='button'
       onClick={() => {
         copyToClipboard('hello world')
       }}
+      backgroundColorClassName='bg-[#4a6da7]'
     >
       copy
     </Button>
