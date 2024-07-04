@@ -4,21 +4,35 @@ import { Title, Button } from 'ui'
 
 export function TitleComponent() {
   return (
-    <Title>
-      <span>title</span>
-    </Title>
+    <>
+      <Title>
+        <span>default title</span>
+      </Title>
+      <Title className='text-cb-mint'>
+        <span>title with className</span>
+      </Title>
+    </>
   )
 }
 
 export function ButtonComponent() {
   return (
-    <Button
-      className='bg-cobalt'
-      onClick={() => {
-        alert('clicked')
-      }}
-    >
-      click me
-    </Button>
+    <>
+      <Button
+        onClick={() => {
+          alert('clicked')
+        }}
+      >
+        default
+      </Button>
+      <Button
+        backgroundColorClassName='bg-cobalt'
+        onClick={() => {
+          alert('clicked')
+        }}
+      >
+        with <code>backgroundColorClassName</code>
+      </Button>
+    </>
   )
 }
