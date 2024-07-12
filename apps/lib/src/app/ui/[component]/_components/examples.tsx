@@ -6,7 +6,7 @@ import {
   PencilSquareIcon,
 } from '@heroicons/react/24/solid'
 
-import { Title, Button, Footer, FooterListItem } from 'ui'
+import { Title, Button, Footer, FooterListItem, DragDropList } from 'ui'
 import { copyToClipboard, useLocalStorage } from 'lib'
 
 export function TitleComponent() {
@@ -65,5 +65,29 @@ export function FooterComponent() {
         <DocumentDuplicateIcon className='h-6 w-6' />
       </FooterListItem>
     </Footer>
+  )
+}
+
+export function DragDropListComponent() {
+  const [body, setBody] = useLocalStorage<string>(
+    'dragDropList',
+    'popeyes\njack in the box\ntaco bell\nwing stop\nraising canes'
+  )
+  const textAsList = (body ?? '').split('\n')
+  return (
+    <DragDropList
+      items={textAsList
+        // .filter(item => item)
+        .map((item, index) => ({ id: `${item}-${index}`, item }))}
+      renderItem={({ item }: { item: string }, index: number) => (
+        <div key={index} className='rounded-lg bg-cobalt p-3'>
+          {index + 1}. {item}
+        </div>
+      )}
+      setItems={(newItems: Array<{ item: string }>) => {
+        setBody(newItems.map(({ item }) => item).join('\n'))
+      }}
+      listContainerClassName='space-y-3'
+    />
   )
 }

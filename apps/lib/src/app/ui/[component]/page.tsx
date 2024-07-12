@@ -6,6 +6,7 @@ import {
   TitleComponent,
   ButtonComponent,
   FooterComponent,
+  DragDropListComponent,
 } from './_components/examples'
 import { Main } from '@/components/ui'
 import { ui } from '@/lib/common'
@@ -14,6 +15,7 @@ const componentNameToComponents: Record<string, React.FC> = {
   button: ButtonComponent,
   title: TitleComponent,
   footer: FooterComponent,
+  dragDropList: DragDropListComponent,
 }
 
 export default function Component({
