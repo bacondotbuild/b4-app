@@ -2,13 +2,18 @@ import Link from 'next/link'
 
 import { Title } from 'ui'
 
-import { TitleComponent, ButtonComponent } from './_components/examples'
+import {
+  TitleComponent,
+  ButtonComponent,
+  FooterComponent,
+} from './_components/examples'
 import { Main } from '@/components/ui'
 import { ui } from '@/lib/common'
 
 const componentNameToComponents: Record<string, React.FC> = {
   button: ButtonComponent,
   title: TitleComponent,
+  footer: FooterComponent,
 }
 
 export default function Component({
@@ -43,7 +48,7 @@ export default function Component({
             </li>
           ))}
         </ul>
-        {Component && <Component />}
+        {Component ? <Component /> : <p>no {currentComponent} component yet</p>}
       </div>
     </Main>
   )
