@@ -3,6 +3,9 @@ import { TRPCReactProvider } from '@/trpc/react'
 
 import '@/styles/globals.css'
 
+import { Main } from '@/components/ui'
+import GlobalTitle from './_components/title'
+
 const DEFAULT_TITLE = 'lib'
 
 export const metadata = {
@@ -28,8 +31,15 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='bg-cb-dark-blue text-cb-white flex min-h-screen flex-col'>
-          <TRPCReactProvider>{children}</TRPCReactProvider>
+        <div className='flex min-h-screen flex-col bg-cb-dark-blue text-cb-white'>
+          <TRPCReactProvider>
+            <Main className='container mx-auto flex max-w-screen-md flex-col p-4 md:px-0'>
+              <div className='flex flex-grow flex-col space-y-4'>
+                <GlobalTitle>{DEFAULT_TITLE}</GlobalTitle>
+                {children}
+              </div>
+            </Main>
+          </TRPCReactProvider>
         </div>
       </body>
     </html>
