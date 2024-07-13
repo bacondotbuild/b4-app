@@ -6,7 +6,14 @@ import {
   PencilSquareIcon,
 } from '@heroicons/react/24/solid'
 
-import { Title, Button, Footer, FooterListItem, DragDropList } from 'ui'
+import {
+  Title,
+  Button,
+  Footer,
+  FooterListItem,
+  DragDropList,
+  Markdown,
+} from 'ui'
 import { copyToClipboard, useLocalStorage } from 'lib'
 
 export function TitleComponent() {
@@ -90,4 +97,8 @@ export function DragDropListComponent() {
       listContainerClassName='space-y-3'
     />
   )
+}
+
+export function MarkdownComponent() {
+  return <Markdown content='<h1>hello world</h1>' />
 }

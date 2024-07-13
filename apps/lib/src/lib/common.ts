@@ -6,6 +6,6 @@ const utils = [
   'useSearch',
 ]
 
-const ui = ['title', 'button', 'footer', 'dragDropList']
+const ui = ['title', 'button', 'footer', 'dragDropList', 'markdown']
 
 export { utils, ui }
