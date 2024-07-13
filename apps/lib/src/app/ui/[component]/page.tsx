@@ -34,7 +34,7 @@ export default function Component({
         <Link href='/' className='hover:text-cb-pink/75'>
           <Title>lib</Title>
         </Link>
-        <ul className='flex space-x-4'>
+        <ul className='flex space-x-4 overflow-auto'>
           {ui.map(component => (
             <li key={component}>
               {component === currentComponent ? (

@@ -265,14 +265,14 @@ export default function Utils({ util }: { util: string }) {
   const Component = utilsToComponents[currentUtil]
   return (
     <>
-      <ul className='flex space-x-4'>
+      <ul className='flex space-x-4 overflow-auto'>
         {utils.map(u => (
           <li key={u}>
             {u === util ? (
               <span>{u}</span>
             ) : (
               <Link
-                href={`/${u}`}
+                href={`/utils/${u}`}
                 className='text-cb-pink hover:text-cb-pink/75'
               >
                 {u}

@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { Title } from 'ui'
 
 import { Main } from '@/components/ui'
-import { ui } from '@/lib/common'
+import { utils } from '@/lib/common'
 
-export default function UI() {
+export default function Utils() {
   return (
     <Main className='container mx-auto flex max-w-screen-md flex-col p-4 md:px-0'>
       <div className='flex flex-grow flex-col space-y-4'>
@@ -13,13 +13,13 @@ export default function UI() {
           <Title>lib</Title>
         </Link>
         <ul className='space-y-4'>
-          {ui.map(component => (
-            <li key={component}>
+          {utils.map(util => (
+            <li key={util}>
               <Link
-                href={`/ui/${component}`}
+                href={`/utils/${util}`}
                 className='text-cb-pink hover:text-cb-pink/75'
               >
-                {component}
+                {util}
               </Link>
             </li>
           ))}

@@ -7,7 +7,7 @@ import Utils from './utils'
 
 export default function UtilPage({ params }: { params: { util: string } }) {
   return (
-    <Main className='flex flex-col p-4'>
+    <Main className='container mx-auto flex max-w-screen-md flex-col p-4 md:px-0'>
       <div className='flex flex-grow flex-col space-y-4'>
         <Link href='/' className='hover:text-cb-pink/75'>
           <Title>lib</Title>
