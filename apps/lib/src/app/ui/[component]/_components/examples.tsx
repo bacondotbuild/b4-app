@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import {
   DocumentDuplicateIcon,
   ListBulletIcon,
@@ -13,6 +14,7 @@ import {
   FooterListItem,
   DragDropList,
   Markdown,
+  Modal,
 } from 'ui'
 import { copyToClipboard, useLocalStorage } from 'lib'
 
@@ -101,4 +103,43 @@ export function DragDropListComponent() {
 
 export function MarkdownComponent() {
   return <Markdown content='<h1>hello world</h1>' />
+}
+
+export function ModalComponent() {
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false)
+  return (
+    <>
+      <Button
+        backgroundColorClassName='bg-red-700'
+        onClick={() => {
+          setIsConfirmModalOpen(true)
+        }}
+      >
+        delete
+      </Button>
+      <Modal
+        isOpen={isConfirmModalOpen}
+        setIsOpen={setIsConfirmModalOpen}
+        title='are you sure you want to delete?'
+      >
+        <div className='flex space-x-4'>
+          <Button
+            onClick={() => {
+              console.log('delete')
+              setIsConfirmModalOpen(false)
+            }}
+          >
+            yes
+          </Button>
+          <Button
+            onClick={() => {
+              setIsConfirmModalOpen(false)
+            }}
+          >
+            no
+          </Button>
+        </div>
+      </Modal>
+    </>
+  )
 }
