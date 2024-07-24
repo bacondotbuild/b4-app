@@ -7,6 +7,7 @@ import {
   DragDropListComponent,
   MarkdownComponent,
   ModalComponent,
+  CommandPaletteComponent,
 } from './_components/examples'
 import { ui } from '@/lib/common'
 
@@ -17,6 +18,7 @@ const componentNameToComponents: Record<string, React.FC> = {
   dragDropList: DragDropListComponent,
   markdown: MarkdownComponent,
   modal: ModalComponent,
+  commandPalette: CommandPaletteComponent,
 }
 
 export default function Component({

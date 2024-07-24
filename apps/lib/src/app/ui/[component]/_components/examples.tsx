@@ -5,6 +5,7 @@ import {
   DocumentDuplicateIcon,
   ListBulletIcon,
   PencilSquareIcon,
+  RocketLaunchIcon,
 } from '@heroicons/react/24/solid'
 
 import {
@@ -15,6 +16,7 @@ import {
   DragDropList,
   Markdown,
   Modal,
+  CommandPalette,
 } from 'ui'
 import { copyToClipboard, useLocalStorage } from 'lib'
 
@@ -140,6 +142,42 @@ export function ModalComponent() {
           </Button>
         </div>
       </Modal>
+    </>
+  )
+}
+
+export function CommandPaletteComponent() {
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false)
+  const commands = [
+    {
+      id: 'console.log',
+      title: 'console.log',
+      action: () => {
+        console.log('hello world')
+      },
+    },
+    {
+      id: 'alert',
+      title: 'alert',
+      action: () => {
+        alert('hello world')
+      },
+    },
+  ]
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setIsCommandPaletteOpen(true)
+        }}
+      >
+        <RocketLaunchIcon className='mx-auto h-6 w-6 text-cb-yellow hover:text-cb-yellow/75' />
+      </Button>
+      <CommandPalette
+        commands={commands}
+        isOpen={isCommandPaletteOpen}
+        setIsOpen={setIsCommandPaletteOpen}
+      />
     </>
   )
 }
