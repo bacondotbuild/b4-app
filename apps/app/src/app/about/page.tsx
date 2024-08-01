@@ -99,7 +99,7 @@ export default function About() {
             cobalt2
           </a>
         </h2>
-        <ul className='grid gap-4 text-2xl text-cobalt sm:text-3xl md:mx-auto md:max-w-4xl md:grid-cols-3'>
+        <ul className='grid grid-cols-3 gap-4 text-2xl text-cobalt sm:text-3xl md:mx-auto md:max-w-4xl'>
           {colors.map(({ name, hex, light }) => (
             <li
               key={name}
