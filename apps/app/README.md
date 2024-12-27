@@ -51,6 +51,8 @@ const config = {
 export default config
 ```
 
+NOTE: Run `Developer: Reload Window` in VSCode to apply the changes.
+
 ### `tailwind.config.ts`
 
 ```js
