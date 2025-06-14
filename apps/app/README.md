@@ -58,6 +58,9 @@ NOTE: Run `Developer: Reload Window` in VSCode to apply the changes.
 ```css
 @import 'tailwindcss';
 
+/* tailwind plugins */
+/* @plugin '@tailwindcss/forms'; */
+
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
